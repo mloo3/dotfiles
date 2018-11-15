@@ -1,14 +1,18 @@
+set timeoutlen=1000
+
+set ttimeoutlen=0
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "===> TABS AND SPACE 4 INDENTS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype plugin indent on 
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
-set softtabstop=4
+""filetype plugin indent on 
+""" show existing tab with 4 spaces width
+""set tabstop=4
+""" when indenting with '>', use 4 spaces width
+""set shiftwidth=4
+""" On pressing tab, insert 4 spaces
+""set expandtab
+""set softtabstop=4
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "===> Line Numbering 
@@ -41,6 +45,11 @@ set background=dark
 call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', {'on':'NERDTreeToggle' }
+Plug 'wincent/command-t', {
+    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+    \ }
+Plug 'tpope/vim-sleuth'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -49,3 +58,7 @@ call plug#end()
 "shortcut
 map <C-n> :NERDTreeToggle<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"===> Shortcuts 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"inoremap { {<CR>}<Esc>k$a
