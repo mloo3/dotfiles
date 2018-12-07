@@ -1,6 +1,9 @@
 set timeoutlen=1000
 
 set ttimeoutlen=0
+noremap <F12> <Esc>:syntax sync fromstart<CR>
+
+" nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "===> TABS AND SPACE 4 INDENTS
@@ -44,12 +47,16 @@ set background=dark
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree', {'on':'NERDTreeToggle' }
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
     \ }
-Plug 'tpope/vim-sleuth'
 Plug 'jiangmiao/auto-pairs'
+Plug 'romainl/vim-cool'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
