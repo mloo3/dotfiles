@@ -57,6 +57,7 @@ Plug 'wincent/command-t', {
     \ }
 Plug 'jiangmiao/auto-pairs'
 Plug 'romainl/vim-cool'
+Plug 'brgmnn/vim-opencl'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -64,8 +65,10 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "shortcut
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "===> Shortcuts 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "inoremap { {<CR>}<Esc>k$a
+" $TERM=xterm-256color
