@@ -1,6 +1,7 @@
 set timeoutlen=1000
 
 set ttimeoutlen=0
+set encoding=utf-8
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 
 " nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
@@ -66,6 +67,7 @@ call plug#end()
 "shortcut
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+let g:NERDTreeDirArrows=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "===> Shortcuts 
