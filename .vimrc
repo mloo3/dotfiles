@@ -1,7 +1,11 @@
+" helps prevent lag
 set timeoutlen=1000
-
 set ttimeoutlen=0
+" enforces format 
 set encoding=utf-8
+" smartcase search
+set ignorecase
+set smartcase
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 
 " nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
@@ -56,9 +60,13 @@ Plug 'scrooloose/nerdtree', {'on':'NERDTreeToggle' }
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
     \ }
+Plug 'kien/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'romainl/vim-cool'
 Plug 'brgmnn/vim-opencl'
+Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -74,3 +82,15 @@ let g:NERDTreeDirArrows=0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "inoremap { {<CR>}<Esc>k$a
 " $TERM=xterm-256color
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"===> zfz 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:ackprg = 'ag --vimgrep --smart-case'                                                   
+" cnoreabbrev ag Ack                                                                           
+" cnoreabbrev aG Ack                                                                           
+" cnoreabbrev Ag Ack                                                                           
+" cnoreabbrev AG Ack  
+" if executable('ag')
+" 	  let g:ackprg = 'ag --vimgrep'
+"   endif
