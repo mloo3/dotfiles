@@ -6,6 +6,13 @@ set encoding=utf-8
 " smartcase search
 set ignorecase
 set smartcase
+" highlight all isntances of word
+set hlsearch
+" change the no wordwrap
+set wrap!
+" remove whitespace on save
+autocmd BufWritePre *.py :%s/\s\+$//e
+
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 
 " nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
@@ -67,6 +74,7 @@ Plug 'brgmnn/vim-opencl'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
+" Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
