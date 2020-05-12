@@ -47,16 +47,15 @@ endfunc
 
 nnoremap <silent><C-l> :call g:ToggleNuMode()<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"===> Colors and Fonts 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax enable
-colorscheme gruvbox
-set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "===> Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
@@ -74,8 +73,16 @@ Plug 'brgmnn/vim-opencl'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
+Plug 'morhetz/gruvbox'
 " Plug 'sheerun/vim-polyglot'
 call plug#end()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"===> Colors and Fonts 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable
+colorscheme gruvbox
+set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "===> NERDTree 
