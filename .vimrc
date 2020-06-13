@@ -63,9 +63,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree', {'on':'NERDTreeToggle' }
-Plug 'wincent/command-t', {
-    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
-    \ }
 Plug 'kien/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'romainl/vim-cool'
