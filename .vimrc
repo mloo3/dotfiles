@@ -17,6 +17,9 @@ noremap <F12> <Esc>:syntax sync fromstart<CR>
 
 " nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
 
+"yank to clipboard
+set clipboard=unnamedplus
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "===> TABS AND SPACE 4 INDENTS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
