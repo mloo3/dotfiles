@@ -1,7 +1,7 @@
 " helps prevent lag
 set timeoutlen=1000
 set ttimeoutlen=0
-" enforces format 
+" enforces format
 set encoding=utf-8
 " smartcase search
 set ignorecase
@@ -23,7 +23,7 @@ set clipboard=unnamedplus
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "===> TABS AND SPACE 4 INDENTS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""filetype plugin indent on 
+""filetype plugin indent on
 """ show existing tab with 4 spaces width
 ""set tabstop=4
 """ when indenting with '>', use 4 spaces width
@@ -33,7 +33,7 @@ set clipboard=unnamedplus
 ""set softtabstop=4
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"===> Line Numbering 
+"===> Line Numbering
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number
 set relativenumber
@@ -74,38 +74,80 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
-" Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
+Plug 'sheerun/vim-polyglot'
+
+" Plug 'flazz/vim-colorschemes'
+" Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"===> Colors and Fonts 
+"===> Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
 colorscheme gruvbox
 set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"===> NERDTree 
+"===> NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "shortcut
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrows=0
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"===> Shortcuts 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" "===> coc.nvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" autocomplete
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<Tab>" :
+	\ coc#refresh()
+
+if has ('nvim')
+	inoremap <silent><expr> <c-space> coc#refresh()
+else
+	inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" goto next lint error
+try
+    nmap <silent> [c :call CocAction('diagnosticNext')<cr>
+    nmap <silent> ]c :call CocAction('diagnosticPrevious')<cr>
+endtry
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" "===> ale
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['black']}
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_fix_on_save = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"===> Shortcuts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "inoremap { {<CR>}<Esc>k$a
 " $TERM=xterm-256color
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"===> zfz 
+"===> zfz
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:ackprg = 'ag --vimgrep --smart-case'                                                   
-" cnoreabbrev ag Ack                                                                           
-" cnoreabbrev aG Ack                                                                           
-" cnoreabbrev Ag Ack                                                                           
-" cnoreabbrev AG Ack  
+" let g:ackprg = 'ag --vimgrep --smart-case'
+" cnoreabbrev ag Ack
+" cnoreabbrev aG Ack
+" cnoreabbrev Ag Ack
+" cnoreabbrev AG Ack
 " if executable('ag')
 " 	  let g:ackprg = 'ag --vimgrep'
 "   endif
