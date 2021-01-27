@@ -23,14 +23,14 @@ set clipboard=unnamedplus
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "===> TABS AND SPACE 4 INDENTS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""filetype plugin indent on
-""" show existing tab with 4 spaces width
-""set tabstop=4
-""" when indenting with '>', use 4 spaces width
-""set shiftwidth=4
-""" On pressing tab, insert 4 spaces
-""set expandtab
-""set softtabstop=4
+filetype plugin indent on
+" " show existing tab with 4 spaces width
+" set tabstop=4
+" " when indenting with '>', use 4 spaces width
+" set shiftwidth=4
+" " On pressing tab, insert 4 spaces
+" set expandtab
+" set softtabstop=4
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "===> Line Numbering
@@ -76,6 +76,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 Plug 'sheerun/vim-polyglot'
 
 " Plug 'flazz/vim-colorschemes'
@@ -130,8 +131,8 @@ endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " "===> ale
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['black']}
-let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['black'],}
+" let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 let g:ale_fix_on_save = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -151,3 +152,8 @@ let g:ale_fix_on_save = 1
 " if executable('ag')
 " 	  let g:ackprg = 'ag --vimgrep'
 "   endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"===> vim go
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:go_fmt_command = "goimports"
